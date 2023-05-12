@@ -9,7 +9,7 @@ public class Logger {
     // В этом поле храним ссылку на тот
     // единственный объект этого класса
     // который будем отдавать пользователям
-    private static Logger logger;
+    private static Logger logger = null;
 
     // Запрещаем пользователям пользоваться
     // конструктором нашего класса
@@ -24,9 +24,9 @@ public class Logger {
     // до того не было заполнено
     public static Logger getInstance() {
         if (logger == null) {
-            return new Logger();
+            logger = new Logger();
         }
-        return null;
+        return logger;
     }
 
     void log(String msg) {
