@@ -13,10 +13,12 @@ public class Main {
         logger.log("Запускаем программу");
         logger.log("Просим пользователя ввести входные данные для списка");
         System.out.println("Введите размер списка: ");
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));) {
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             int num = Integer.parseInt(br.readLine());
             System.out.println("Введите верхнюю границу для значений: ");
             int maxValue = Integer.parseInt(br.readLine());
+
             logger.log("Создаём и наполняем список ");
             Random random = new Random();
             List<Integer> randomData = new ArrayList<>();
@@ -27,18 +29,22 @@ public class Main {
                 System.out.print(intData + " ");
             }
             System.out.println();
+
             logger.log("Просим пользователя ввести входные данные для фильтрации");
             System.out.println("Введите порог для фильтра: ");
             int threshold = Integer.parseInt(br.readLine());
+
             logger.log("Запускаем фильтрацию");
             Filter filter = new Filter(threshold);
             List<Integer> filteredData = filter.filterOut(randomData);
+
             System.out.println("Выводим результат на экран");
             System.out.println("Отфильтрованный список: ");
             for (Integer n : filteredData) {
                 System.out.print(n + " ");
             }
             System.out.println();
+
             logger.log("Завершаем программу");
         } catch (IOException e) {
         }

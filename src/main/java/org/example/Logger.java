@@ -31,7 +31,7 @@ public class Logger {
 
     void log(String msg) {
         System.out.println("[" +
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss dd.MM.yyyy ")) +
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss ")) +
                 num++ + "]" + msg);
     }
 }
